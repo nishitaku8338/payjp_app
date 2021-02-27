@@ -21,7 +21,12 @@ const pay = () => {
         const renderDom = document.getElementById("charge-form");   //idを元に要素を取得
         const tokenObj = `<input value=${token} name='card_token' type="hidden">`;   //paramsの中にトークンを含める
         renderDom.insertAdjacentHTML("beforeend", tokenObj);  //フォームの一番最後に要素を追加
-      }   
+
+        document.getElementById("number").removeAttribute("name");
+        document.getElementById("cvc").removeAttribute("name");
+        document.getElementById("exp_month").removeAttribute("name");
+        document.getElementById("exp_year").removeAttribute("name");
+      }
     });
   });
 };
@@ -31,3 +36,5 @@ const pay = () => {
 // addEventListenerメソッド イベントを実行する
 // insertAdjacentHTMLメソッド ・呼び出し元の要素にHTML要素を追加する、・呼び出し元の要素の近く（Adjacent）であれば、追加出来る場所は複数ある
 // removeAttributeメソッド 指定した属性（Attribute）を削除（remove）出来る
+
+// 25~28行目、name属性を指定して削除することで、入力されたカード情報の各値をparamsに含まれないようにする
