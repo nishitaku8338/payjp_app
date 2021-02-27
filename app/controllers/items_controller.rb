@@ -16,6 +16,8 @@ class ItemsController < ApplicationController
       customer: customer_token, # 顧客のトークン
       currency: 'jpy' # 通貨の種類（日本円）
       )
+    
+    ItemOrder.create(item_id: params[:id]) # 商品のid情報を「item_id」として保存する
   end
 
   private
@@ -33,3 +35,6 @@ end
 # 次に、カード情報を受け取るために、PAY.JP側に送るトークンを定義する
 # 最後に、「Payjp::Charge.create」として、支払い情報を生成する
 # jpyは「japanese yen」の略称で、「日本円」を意味する
+
+# 20行目、購入ボタンをクリックすると、送られてくるparamsの中に「どの商品かを識別するid」が含まれる
+# そのid情報を、item_orderテーブルでは「item_id（カラム名）」として保存する
