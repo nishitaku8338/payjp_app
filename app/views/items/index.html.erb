@@ -1,7 +1,7 @@
-<%= link_to 'マイページへ行く' %>
+<%= link_to 'マイページへ行く', user_path(current_user) %>  <%# ログインしているユーザーの情報を表示 %>
 <div class="content">
   <% @items.each do |item| %> 
-<%# eachメソッドを使うことで、全商品に対して以下の処理を実行します %>
+<%# eachメソッドを使い、全商品に対して以下の処理を実行 %>
     <p>商品名：<%= item.name %></p>
     <p>値段：<%= item.price %>円</p>
     <%= link_to '購入する'%>
