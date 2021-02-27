@@ -1,0 +1,35 @@
+<%# カード情報を入力するフォーム %>
+<%= form_with  url: cards_path, id: 'charge-form', class: 'card-form',local: true do |f| %>
+  <div class="Cardpage">
+    <h1>カード登録</h1>
+  </div><br>
+  <div class='form-wrap'>
+    <%= f.label :number, "【カード番号】" %>
+    <%= f.text_field :number, class:"number", placeholder:"カード番号(半角英数字)", maxlength:"16" %>
+  </div>
+  <div class='form-wrap'>
+    <%= f.label :cvc ,"【ＣＶＣ】" %>
+    <%= f.text_field :cvc, class:"cvc", placeholder:"カード背面にある3桁の番号", maxlength:"4" %>
+  </div>
+  <div class='form-wrap'>
+  <br>
+    <p>【有効期限】</p>
+    <div class='input-expiration-date-wrap'>
+      <%= f.select :exp_month, 1..12, {include_blank: "---"}, class: "exp_month" %>
+      <p>月</p>
+      <%= f.select :exp_year, 20..25, {include_blank: "---"}, class: "exp_year" %>
+      <p>年</p>
+    </div>
+  </div>
+  <%= f.submit "登録する" , class:"button" %>
+<% end %>  
+
+<%# 入力後は「createアクション」が動く %>
+<%# 「rails routes」を実行してパスを調べる。 %>
+<%# 「id: 'charge-form'」は後に実装するjsファイルで扱う %>
+<%# このidが非常に大事な役割を持つ %>
+
+<%# 「f.text_field」 は、その名の通りテキスト（文字）の入力欄（8,12行目） %>
+<%# 「f.select」とすることで選択肢が表示されます。（18,20行目） %>
+<%# 「1..12」などは、その選択肢の範囲を設定する。 %>
+<%# 最後に、「include_blank: "---"」とすることで、選択前は「---」と表示することが出来る。 %>
