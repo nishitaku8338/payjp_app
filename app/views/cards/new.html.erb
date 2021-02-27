@@ -1,2 +1,8 @@
-<h1>Cards#new</h1>
-<p>Find me in app/views/cards/new.html.erb</p>
+<%# カード情報を入力するフォーム %>
+<%= form_with  url: cards_path, id: 'charge-form', class: 'card-form',local: true do |f| %>
+<% end %>  
+
+<%# 入力後は「createアクション」が動く %>
+<%# 「rails routes」を実行してパスを調べる。 %>
+<%# 「id: 'charge-form'」は後に実装するjsファイルで扱う %>
+<%# このidが非常に大事な役割を持つ %>
