@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   root 'items#index' # トップページになるルートパスを設定
 
   resources :users, only: [:show, :update]
+  resources :cards, only: [:new, :create]
 end
