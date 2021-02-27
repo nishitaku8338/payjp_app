@@ -4,10 +4,13 @@
 // that code so it'll be compiled.
 
 require("@rails/ujs").start()
-require("turbolinks").start()
+//require("turbolinks").start()  jsを使えるようにする為にコメントアウト
 require("@rails/activestorage").start()
 require("channels")
-
+require("../card")  // 追加
+// jsファイルはapplication.jsによって読み込まれる
+// application.jsから見てcard.jsは1つ上の階層に位置する
+// そのため、1つ上の階層を意味する「../」を記述する
 
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
