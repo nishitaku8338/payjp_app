@@ -33,6 +33,8 @@ const pay = () => {
   });
 };
 
+window.addEventListener("load", pay);
+
 // setPublicKeyメソッド 公開鍵（PublicKey）を設定する
 // getElementByIdメソッド idを元に要素（Element）を取得（get）する
 // addEventListenerメソッド イベントを実行する
